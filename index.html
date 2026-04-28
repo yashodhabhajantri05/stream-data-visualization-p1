@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="students.js"></script>
+</head>
+
+<body style="font-family: Arial; padding:20px">
+
+<h2>📊 Student Dashboard (Chart.js)</h2>
+
+<!-- Charts -->
+<canvas id="marksChart"></canvas>
+<br><br>
+
+<canvas id="gradeChart"></canvas>
+<br><br>
+
+<canvas id="scatterChart"></canvas>
+<br><br>
+
+<canvas id="lineChart"></canvas>
+
+<script>
+// -------- DATA --------
+const marks = students.map(s => s.marks);
+const ids = students.map(s => s.id);
+
+// ---------------- BAR CHART ----------------
+new Chart(document.getElementById("marksChart"), {
+    type: "bar",
+    data: {
+        labels: ids,
+        datasets: [{
+            label: "Marks",
+            data: marks,
+            borderWidth: 1
+        }]
+    }
+});
+
+// ---------------- PIE CHART ----------------
+const gradeCount = {A:0, B:0, C:0, D:0};
+
+students.forEach(s => gradeCount[s.grade]++);
+
+new Chart(document.getElementById("gradeChart"), {
+    type: "pie",
+    data: {
+        labels: Object.keys(gradeCount),
+        datasets: [{
+            data: Object.values(gradeCount)
+        }]
+    }
+});
+
+// ---------------- SCATTER ----------------
+const scatterData = students.map(s => ({
+    x: s.study,
+    y: s.marks
+}));
+
+new Chart(document.getElementById("scatterChart"), {
+    type: "scatter",
+    data: {
+        datasets: [{
+            label: "Study Hours vs Marks",
+            data: scatterData
+        }]
+    }
+});
+
+// ---------------- LINE CHART ----------------
+new Chart(document.getElementById("lineChart"), {
+    type: "line",
+    data: {
+        labels: ids,
+        datasets: [{
+            label: "Marks Trend",
+            data: marks,
+            fill: false,
+            tension: 0.3,
+            borderWidth: 2,
+            pointRadius: 4
+        }]
+    },
+    options: {
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: "Student ID"
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: "Marks"
+                }
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

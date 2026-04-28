@@ -1,126 +1,105 @@
-# 📊 Student Performance Analytics Dashboard
+# 📊 Student Dashboard (Chart.js)
 
-An interactive data visualization project built using **Python, Pandas, Matplotlib, and Streamlit**.
-This dashboard analyzes student performance based on marks, attendance, study hours, and efficiency.
+A simple and interactive **data visualization dashboard** built using **HTML, JavaScript, and Chart.js**.
+This project visualizes student performance using multiple charts in a single web page.
 
 ---
 
 ## 🚀 Features
 
-* 📂 Upload and analyze student dataset
-* 📊 Visualize performance using charts
-* 🎯 Grade distribution analysis
-* 📈 Study hours vs marks correlation
-* 📉 Attendance vs performance insights
-* 🏆 Top-performing students
-* 🔍 Filter students by grade
+* 📊 Bar Chart → Marks per student
+* 🥧 Pie Chart → Grade distribution
+* 📈 Scatter Plot → Study hours vs marks
+* 📉 Line Graph → Marks trend
+* ⚡ Lightweight (no backend required)
+* 🌐 Runs directly in browser
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Python**
-* **Pandas** – Data processing
-* **Matplotlib** – Visualization
-* **Streamlit** – Interactive dashboard
+* **HTML5**
+* **JavaScript**
+* **Chart.js**
 
 ---
 
-##  Project Structure
+## 📁 Project Structure
 
-```
- Student-Analytics
- ┣ 📜 app.py
- ┣ 📜 generate_data.py
- ┣ 📜 students.csv
+```bash
+📦 chartjs-student-dashboard
+ ┣ 📜 index.html
+ ┣ 📜 students.js
  ┗ 📜 README.md
-```
-
----
-
-## ⚙️ Installation
-
-```bash
-pip install streamlit pandas matplotlib
-```
-
----
-
-## ▶️ Run the Project
-
-```bash
-streamlit run app.py
 ```
 
 ---
 
 ## 📊 Dataset
 
-The dataset contains:
+The dataset is stored in `students.js` as a JavaScript array.
 
-* StudentID
-* Marks
-* Attendance (%)
-* Study Hours
-* Efficiency (Marks / StudyHours)
-* Grade (A, B, C, D)
+### Example:
 
-You can generate the dataset using:
-
-```bash
-python generate_data.py
+```javascript
+const students = [
+  {id:1, marks:78, study:8, grade:"B"},
+  {id:2, marks:91, study:1, grade:"A"}
+];
 ```
 
 ---
 
-##  Screenshots
+## ▶️ How to Run
 
-###  Dashboard Overview
+1. Download or clone the project
+2. Open `index.html` in your browser
 
-![Dashboard](screenshots/dashboard.png)
-
----
-
-###  Grade Distribution
-
-![Grade Distribution](screenshots/pie_chart.png)
+```bash
+# No installation required
+```
 
 ---
 
-###   Marks per student
-
-![Attendance](screenshots/bar.png)
+## 📸 Screenshots
 
 ---
 
-###  Study Hours vs Marks
+### 📈 Charts Included
 
-![Scatter Plot](screenshots/scatter.png)
+* Bar Chart
 
+![Charts](screenshots/bar.png)
+
+
+* Pie Chart
+
+![Charts](screenshots/pie.png)
+
+* Scatter Plot
+
+![Charts](screenshots/scatter.png)
+
+* Line Graph
+
+![Charts](screenshots/line.png)
 
 ---
 
-###  Top Students
+## 📌 Insights
 
-![Top Students](screenshots/top_students.png)
-
----
-
-##  Insights
-
-* Students with higher study hours tend to score more marks
-* Attendance has moderate impact on performance
-* Efficiency helps identify smart study patterns
-* Majority of students fall under grade C and B
+* Students with more study hours generally score higher
+* Grade distribution shows performance levels
+* Line graph helps visualize trends across students
 
 ---
 
 ## 🔥 Future Improvements
 
-* Add **interactive charts (Plotly)**
-* Integrate **machine learning predictions**
-* Add **emotion detection (AI integration)**
-* Deploy using **Streamlit Cloud**
+* Add **dropdown filters (by grade)**
+* Add **colors and themes**
+* Use **Bootstrap for better UI**
+* Connect to **real backend (Django / API)**
 
 ---
 
